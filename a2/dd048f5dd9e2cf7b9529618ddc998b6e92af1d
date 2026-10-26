@@ -1,0 +1,27 @@
+README.md
+  s_a78bf3d6b9a4f7::t_a876da57c3b1b2 1-25
+.gitmodules
+  s_a78bf3d6b9a4f7::t_314a0fdba4f845 1-9
+android
+  s_a78bf3d6b9a4f7::t_a70106c6fec0e1 1
+ble
+  s_a78bf3d6b9a4f7::t_467109ae6a5af8 1
+ios
+  s_a78bf3d6b9a4f7::t_a06bb06f9672ec 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.11",
+  "base_commit_sha": "a2dd048f5dd9e2cf7b9529618ddc998b6e92af1d",
+  "prompts": {},
+  "sessions": {
+    "s_a78bf3d6b9a4f7": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "71cf080a-c3c3-429c-bb57-cf6aae336486",
+        "model": "grok-4.7"
+      },
+      "human_author": "Nir Azulay <nir.azulay@gmail.com>"
+    }
+  }
+}
