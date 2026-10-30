@@ -1,0 +1,19 @@
+ios
+  s_e38741243bf594::t_d22775ac0db2c0 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.11",
+  "base_commit_sha": "1b5be4315553cc1b05824a5a64b139bbfb467a5c",
+  "prompts": {},
+  "sessions": {
+    "s_e38741243bf594": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "s_e38741243bf594",
+        "model": "unknown"
+      },
+      "human_author": "Nir Azulay <nir.azulay@gmail.com>"
+    }
+  }
+}
