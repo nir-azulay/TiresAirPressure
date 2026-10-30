@@ -1,14 +1,57 @@
 # Tires air pressure
 
-One checkout for the controller and both phone apps. Each part keeps its own repository.
+A small air system that sets tire pressure from a phone. One ESP32 controller sits on a shared air manifold. The Android and iOS apps connect to it over Bluetooth and tell it to inflate or deflate until the tires reach a target pressure.
+
+## How it fits together
+
+```text
+air tank ── inflate valve ──┐
+                            ├── manifold ── four tires
+atmosphere ◄── deflate valve ┘
+                            └── pressure sensor
+                                    │
+                                 ESP32
+                                    │  BLE
+                         Android app    iOS app
+                         Android Auto   CarPlay
+```
+
+The manifold is one shared volume, so every tire and the sensor see the same pressure. The inflate valve lets air in from the tank. The deflate valve vents air out. With both valves closed, the manifold holds pressure. The controller runs only one valve at a time and keeps both closed until the sensor's full-scale PSI is set.
+
+The phone is the remote control. It shows live pressure, sends inflate, deflate, and stop, and stores a few target presets. The same actions are available on Android Auto and CarPlay. Both apps speak the same BLE messages, so either phone can run the same controller.
+
+Maximum pressure, how long a valve may stay open, the sensor calibration, and the access-point password are settings on the controller's configuration page. The apps do not change those.
+
+## Repositories
+
+This repository is only the index. Each part has its own repository, checked out here as a submodule.
 
 | Folder | What it is | Repository |
 |---|---|---|
-| `ble` | ESP32 controller | [AirUpDownControllerV2](https://github.com/nir-azulay/AirUpDownControllerV2) |
-| `android` | Android app | [TiresAirPressure-Android](https://github.com/nir-azulay/TiresAirPressure-Android) |
-| `ios` | iOS app | [TiresAirPressure-iOS](https://github.com/nir-azulay/TiresAirPressure-iOS) |
+| [`ble`](ble) | ESP32 firmware, wiring, and the BLE protocol | [AirUpDownControllerV2](https://github.com/nir-azulay/AirUpDownControllerV2) |
+| [`android`](android) | Android phone app and Android Auto | [TiresAirPressure-Android](https://github.com/nir-azulay/TiresAirPressure-Android) |
+| [`ios`](ios) | iOS phone app and CarPlay | [TiresAirPressure-iOS](https://github.com/nir-azulay/TiresAirPressure-iOS) |
 
-Clone everything:
+Use these repositories. [TiresAirPressureManagement](https://github.com/nir-azulay/TiresAirPressureManagement) is an old combined copy and is deprecated.
+
+Deeper detail lives next to the code:
+
+- Controller hardware and air path: [ble/docs/HARDWARE.md](ble/docs/HARDWARE.md)
+- Parts list: [ble/docs/PARTS.md](ble/docs/PARTS.md)
+- BLE messages: [ble/docs/BLE_PROTOCOL.md](ble/docs/BLE_PROTOCOL.md)
+- Schematic: [ble/hardware/AirUpDownController.sch](ble/hardware/AirUpDownController.sch)
+
+## The three parts
+
+**Controller.** An ESP32 with two onboard relays drives 12 V solenoid valves. The inflate relay is GPIO16 and the deflate relay is GPIO17, both active high. The pressure sensor is on GPIO34. Firmware is Arduino on PlatformIO, board `esp32dev`. It also serves a small configuration site over Wi-Fi.
+
+**Android.** A Kotlin and Jetpack Compose app. It scans for the controller, reconnects to the last one, shows the live pressure, and runs inflate and deflate to a target. Android Auto has the same controls for use in the car. Play releases go to the internal testing track.
+
+**iOS.** The same product in SwiftUI, in English and Hebrew, for iPhone and iPad. CarPlay has the in-car controls. TestFlight is the test release.
+
+## Working on it
+
+Clone the parent and the three submodules together:
 
 ```bash
 git clone --recurse-submodules git@github.com:nir-azulay/TiresAirPressure.git
@@ -20,6 +63,14 @@ If the parent is already cloned:
 git submodule update --init --recursive
 ```
 
-Commit inside the folder you changed, then push that repository. Update the parent only when you want it to point at a new commit of a submodule.
+Change and push inside the folder you edited (`ble`, `android`, or `ios`). Commit in the parent only when it should record a new submodule commit.
 
-Play internal releases run from the Android repository. TestFlight releases run from the iOS repository. Each one is scheduled for 06:00 UTC on the 1st of the month, and can also be started by hand from that repository's Actions tab. The controller is built in its own repository with PlatformIO.
+Build and release from the repository that owns that part:
+
+| Part | Build | Test release |
+|---|---|---|
+| Controller | `pio run -e esp32` in `ble` | Flash from PlatformIO. There is no store release. |
+| Android | `./gradlew bundleRelease` in `android` | GitHub Actions workflow **Android Play internal**, on the 1st of the month at 06:00 UTC, or by hand from that repository's Actions tab |
+| iOS | Xcode scheme `TirePressureManager`, or `bundle exec fastlane beta` in `ios` | GitHub Actions workflow **iOS TestFlight**, on the same schedule, or by hand |
+
+Signing secrets for those two workflows live in the Android and iOS repositories, not in this parent.
