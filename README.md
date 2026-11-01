@@ -1,6 +1,14 @@
 # Tires air pressure
 
+<p align="center">
+  <img src="assets/app_icon.jpg" alt="Tires Air Management Logo" width="180" />
+</p>
+
 A small air system that sets tire pressure from a phone. One ESP32 controller sits on a shared air manifold. The Android and iOS apps connect to it over Bluetooth and tell it to inflate or deflate until the tires reach a target pressure.
+
+<p align="center">
+  <img src="assets/splash_screen.jpg" alt="Tires Air Management Splash Screen" width="320" />
+</p>
 
 ## How it fits together
 
