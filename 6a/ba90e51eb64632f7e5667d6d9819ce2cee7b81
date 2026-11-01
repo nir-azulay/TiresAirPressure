@@ -1,0 +1,19 @@
+android
+  s_3ea90b180dd3a6::t_dcf5d65a7ef860 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.11",
+  "base_commit_sha": "6aba90e51eb64632f7e5667d6d9819ce2cee7b81",
+  "prompts": {},
+  "sessions": {
+    "s_3ea90b180dd3a6": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "s_3ea90b180dd3a6",
+        "model": "unknown"
+      },
+      "human_author": "Nir Azulay <nir.azulay@gmail.com>"
+    }
+  }
+}
