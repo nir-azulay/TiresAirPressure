@@ -1,10 +1,10 @@
-# Tires air pressure
+# Tires Air Pressure — DIY Off-Road Air Management System
 
 <p align="center">
   <img src="assets/app_icon.jpg" alt="Tires Air Management Logo" width="180" />
 </p>
 
-A small air system that sets tire pressure from a phone. One ESP32 controller sits on a shared air manifold. The Android and iOS apps connect to it over Bluetooth and tell it to inflate or deflate until the tires reach a target pressure.
+An open-source **DIY (Do-It-Yourself)** tire air pressure management system that inflates and deflates up to four tires simultaneously from your phone or vehicle head unit (Apple CarPlay & Android Auto). Built around an off-the-shelf ESP32 two-relay board, two 12 V solenoid valves, and a pressure transducer on a shared air manifold, the Android and iOS apps connect over Bluetooth Low Energy (BLE) to automatically bring your tires to your target PSI.
 
 <p align="center">
   <img src="assets/splash_screen.jpg" alt="Tires Air Management Splash Screen" width="280" />

@@ -1,5 +1,6 @@
-# Tires Air Pressure Management System — Reverse-Engineered Technical Specification
+# Tires Air Pressure Management System — DIY Technical Specification
 
+**Project Type:** Open-Source DIY (Do-It-Yourself) Off-Road Hardware & Mobile/Automotive Software Suite  
 **Version:** Firmware `v1.0.x` (`Software_VER = 2.00`) | iOS `v2.1.0` | Android `v2.1.0`  
 **Author:** Nir Azulay  
 
@@ -7,7 +8,7 @@
 
 ## 1. System Overview & Pneumatic Architecture
 
-The **Tires Air Pressure Management System** is an automated pneumatic closed-loop controller and multi-platform mobile/automotive application suite designed to inflate or deflate up to four vehicle tires simultaneously through a shared manifold.
+The **Tires Air Pressure Management System** is an open-source **DIY** automated pneumatic closed-loop controller and multi-platform mobile/automotive application suite designed to inflate or deflate up to four vehicle tires simultaneously through a shared manifold using off-the-shelf components.
 
 ```text
                        ┌──────────────────────┐
