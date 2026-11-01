@@ -1,0 +1,14 @@
+ble
+  h_948ef7e7b38ced 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.11",
+  "base_commit_sha": "1565b5bb254aed75b7fbdd6ab5883727d32b5c78",
+  "prompts": {},
+  "humans": {
+    "h_948ef7e7b38ced": {
+      "author": "Nir Azulay <nir.azulay@gmail.com>"
+    }
+  }
+}
