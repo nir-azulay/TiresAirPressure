@@ -28,9 +28,7 @@ atmosphere ◄── deflate valve ┘
 
 The manifold is one shared volume, so every tire and the sensor see the same pressure. The inflate valve lets air in from the tank. The deflate valve vents air out. With both valves closed, the manifold holds pressure. The controller runs only one valve at a time and keeps both closed until the sensor's full-scale PSI is set.
 
-The phone is the remote control. It shows live pressure, sends inflate, deflate, and stop, and stores a few target presets. The same actions are available on Android Auto and CarPlay. Both apps speak the same BLE messages, so either phone can run the same controller.
-
-Maximum pressure, how long a valve may stay open, the sensor calibration, and the access-point password are settings on the controller's configuration page. The apps do not change those.
+The phone is the remote control. It shows live pressure, sends inflate, deflate, and stop, and stores target presets. The same actions are available on Android Auto and CarPlay. Both apps speak the same BLE messages, so either phone can run and fully configure the same controller (including GPIO pins, sensor calibration, safety limits, Wi-Fi SSID scanning, hotspot password, and BLE access code).
 
 ## Repositories
 
@@ -38,12 +36,13 @@ This repository is only the index. Each part has its own repository, checked out
 
 | Folder | What it is | Repository |
 |---|---|---|
-| [`ble`](ble) | ESP32 firmware, wiring, and the BLE protocol | [AirUpDownControllerV2](https://github.com/nir-azulay/AirUpDownControllerV2) |
-| [`android`](android) | Android phone app and Android Auto | [TiresAirPressure-Android](https://github.com/nir-azulay/TiresAirPressure-Android) |
-| [`ios`](ios) | iOS phone app and CarPlay | [TiresAirPressure-iOS](https://github.com/nir-azulay/TiresAirPressure-iOS) |
+| [`ble`](ble) | ESP32 firmware (`v1.0`), Web UI, wiring, and BLE protocol | [AirUpDownControllerV2](https://github.com/nir-azulay/AirUpDownControllerV2) |
+| [`android`](android) | Android phone app (`v2.1.0`) and Android Auto | [TiresAirPressure-Android](https://github.com/nir-azulay/TiresAirPressure-Android) |
+| [`ios`](ios) | iOS phone app (`v2.1.0`) and CarPlay | [TiresAirPressure-iOS](https://github.com/nir-azulay/TiresAirPressure-iOS) |
 
 Deeper detail lives next to the code:
 
+- **Full Reverse-Engineered System Specification:** [SPECIFICATION.md](SPECIFICATION.md)
 - Controller hardware and air path: [ble/docs/HARDWARE.md](ble/docs/HARDWARE.md)
 - Parts list: [ble/docs/PARTS.md](ble/docs/PARTS.md)
 - BLE messages: [ble/docs/BLE_PROTOCOL.md](ble/docs/BLE_PROTOCOL.md)
@@ -51,7 +50,7 @@ Deeper detail lives next to the code:
 
 ## The three parts
 
-**Controller.** An ESP32 with two onboard relays drives 12 V solenoid valves. The inflate relay is GPIO16 and the deflate relay is GPIO17, both active high. The pressure sensor is on GPIO34. Firmware is Arduino on PlatformIO, board `esp32dev`. It also serves a small configuration site over Wi-Fi.
+**Controller (`v1.0`).** An ESP32 with two onboard relays drives 12 V solenoid valves. By default, the inflate relay is GPIO16, the deflate relay is GPIO17 (both active high), and the pressure sensor is on GPIO34 (all configurable via the Web UI or mobile apps). Firmware is Arduino on PlatformIO, board `esp32dev`. It also serves a responsive offline-capable configuration and OTA update site over Wi-Fi (or fallback SoftAP).
 
 **Android.** A Kotlin and Jetpack Compose app. It scans for the controller, reconnects to the last one, shows the live pressure, and runs inflate and deflate to a target. Android Auto has the same controls for use in the car. Play releases go to the internal testing track.
 
