@@ -7,7 +7,9 @@
 A small air system that sets tire pressure from a phone. One ESP32 controller sits on a shared air manifold. The Android and iOS apps connect to it over Bluetooth and tell it to inflate or deflate until the tires reach a target pressure.
 
 <p align="center">
-  <img src="assets/splash_screen.jpg" alt="Tires Air Management Splash Screen" width="320" />
+  <img src="assets/splash_screen.jpg" alt="Tires Air Management Splash Screen" width="280" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/app_screenshot.png" alt="Tires Air Management App Screen" width="280" />
 </p>
 
 ## How it fits together
@@ -39,8 +41,6 @@ This repository is only the index. Each part has its own repository, checked out
 | [`ble`](ble) | ESP32 firmware, wiring, and the BLE protocol | [AirUpDownControllerV2](https://github.com/nir-azulay/AirUpDownControllerV2) |
 | [`android`](android) | Android phone app and Android Auto | [TiresAirPressure-Android](https://github.com/nir-azulay/TiresAirPressure-Android) |
 | [`ios`](ios) | iOS phone app and CarPlay | [TiresAirPressure-iOS](https://github.com/nir-azulay/TiresAirPressure-iOS) |
-
-Use these repositories. [TiresAirPressureManagement](https://github.com/nir-azulay/TiresAirPressureManagement) is an old combined copy and is deprecated.
 
 Deeper detail lives next to the code:
 
