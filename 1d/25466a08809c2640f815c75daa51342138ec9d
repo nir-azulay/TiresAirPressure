@@ -1,0 +1,19 @@
+ble
+  s_ddcbe019a2ee9b::t_decf61ca8c36e6 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.11",
+  "base_commit_sha": "1d25466a08809c2640f815c75daa51342138ec9d",
+  "prompts": {},
+  "sessions": {
+    "s_ddcbe019a2ee9b": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "s_ddcbe019a2ee9b",
+        "model": "unknown"
+      },
+      "human_author": "Nir Azulay <nir.azulay@gmail.com>"
+    }
+  }
+}
