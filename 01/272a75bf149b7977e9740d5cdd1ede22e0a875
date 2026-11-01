@@ -1,0 +1,21 @@
+android
+  s_e302949f51de5a::t_7add5f8db1255c 1
+ios
+  s_e302949f51de5a::t_c05bf4a19de7e9 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.11",
+  "base_commit_sha": "01272a75bf149b7977e9740d5cdd1ede22e0a875",
+  "prompts": {},
+  "sessions": {
+    "s_e302949f51de5a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "s_e302949f51de5a",
+        "model": "unknown"
+      },
+      "human_author": "Nir Azulay <nir.azulay@gmail.com>"
+    }
+  }
+}
