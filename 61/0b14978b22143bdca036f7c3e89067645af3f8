@@ -1,0 +1,19 @@
+android
+  s_319330fef0fbb3::t_63876550323d92 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.11",
+  "base_commit_sha": "610b14978b22143bdca036f7c3e89067645af3f8",
+  "prompts": {},
+  "sessions": {
+    "s_319330fef0fbb3": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "s_319330fef0fbb3",
+        "model": "unknown"
+      },
+      "human_author": "Nir Azulay <nir.azulay@gmail.com>"
+    }
+  }
+}
