@@ -1,0 +1,28 @@
+.cursor/rules/store-release-version-bump.mdc
+  s_c6b8b716f084ae::t_b63dcad876a6af 1-21
+README.md
+  s_c6b8b716f084ae::t_ed98e1b9a294f4 40-41
+SPECIFICATION.md
+  s_c6b8b716f084ae::t_221f1a62df7544 292
+  s_c6b8b716f084ae::t_c7f88bc8b84fac 4
+ios
+  s_c6b8b716f084ae::t_76ee56e98c6184 1
+android
+  s_c6b8b716f084ae::t_7d944bcc8a5fbd 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.11",
+  "base_commit_sha": "5dc84d1c60b464dcc64ed4aa0d2d064bf61c2b00",
+  "prompts": {},
+  "sessions": {
+    "s_c6b8b716f084ae": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "522e06f5-c391-47e8-8a61-a9e7ff269c45",
+        "model": "gemini-4-argon"
+      },
+      "human_author": "Nir Azulay <nir.azulay@gmail.com>"
+    }
+  }
+}
