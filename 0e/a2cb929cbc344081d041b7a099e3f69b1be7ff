@@ -1,0 +1,19 @@
+ble
+  s_9b33e9d550f434::t_d5d174898b86a9 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.11",
+  "base_commit_sha": "0ea2cb929cbc344081d041b7a099e3f69b1be7ff",
+  "prompts": {},
+  "sessions": {
+    "s_9b33e9d550f434": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "s_9b33e9d550f434",
+        "model": "unknown"
+      },
+      "human_author": "Nir Azulay <nir.azulay@gmail.com>"
+    }
+  }
+}
