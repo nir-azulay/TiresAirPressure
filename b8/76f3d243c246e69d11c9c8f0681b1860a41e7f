@@ -1,0 +1,23 @@
+ios
+  s_c6b8b716f084ae::t_aad2b92d6b4350 1
+android
+  s_c6b8b716f084ae::t_d558737d677421 1
+ble
+  s_c6b8b716f084ae::t_2bf8bca8fd4c36 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.11",
+  "base_commit_sha": "b876f3d243c246e69d11c9c8f0681b1860a41e7f",
+  "prompts": {},
+  "sessions": {
+    "s_c6b8b716f084ae": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "522e06f5-c391-47e8-8a61-a9e7ff269c45",
+        "model": "gemini-4-argon"
+      },
+      "human_author": "Nir Azulay <nir.azulay@gmail.com>"
+    }
+  }
+}
