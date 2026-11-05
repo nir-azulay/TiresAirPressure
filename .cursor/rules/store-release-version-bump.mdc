@@ -1,21 +1,22 @@
 ---
-description: Always promote the minor version before publishing to TestFlight or Google Play Console
+description: Always promote the minor version and update release notes before publishing to TestFlight or Google Play Console
 alwaysApply: true
 ---
 
-# Store Release Minor Version Promotion
+# Store Release Minor Version & Release Notes Rule
 
-Whenever the user asks to publish, upload, or release to **TestFlight** (iOS) or **Google Play Console** (Android), you **MUST** first increment the **minor version** (`X.Y.Z` -> `X.(Y+1).0`) before committing, pushing, and triggering the release workflow:
+Whenever the user asks to publish, upload, or release to **TestFlight** (iOS) or **Google Play Console** (Android), you **MUST** follow the `release-manager` skill (`.cursor/skills/release-manager/SKILL.md`):
 
-1. **iOS (`ios/`)**:
-   - Bump `CFBundleShortVersionString` in `ios/App/Info.plist` (e.g. `2.1.0` -> `2.2.0`).
-   - Bump `MARKETING_VERSION` in `ios/TirePressureManager.xcodeproj/project.pbxproj` (in both `Debug` and `Release` target configurations).
-   - Update the version header in `ios/README.md` if applicable.
+1. **Promote Minor Version (`X.Y.Z` -> `X.(Y+1).0`)**:
+   - **iOS (`ios/`)**: Bump `CFBundleShortVersionString` in `ios/App/Info.plist`, `MARKETING_VERSION` in `ios/TirePressureManager.xcodeproj/project.pbxproj`, and `ios/README.md`.
+   - **Android (`android/`)**: Increment `def versionMinor` (and reset `def versionPatch = 0`) in `android/app/build.gradle`, and update `android/README.md`.
+   - **Root Docs**: Update `README.md` and `SPECIFICATION.md`.
 
-2. **Android (`android/`)**:
-   - Increment `def versionMinor` (and reset `def versionPatch = 0`) in `android/app/build.gradle`.
-   - Update the version header in `android/README.md` if applicable.
+2. **Update Release Notes Since Last Release**:
+   - Inspect git history across `ios`, `android`, `ble`, and root since the previous release commit.
+   - Update `ios/fastlane/release_notes.txt` (used by Fastlane `upload_to_testflight` `changelog`).
+   - Update `android/whatsnew/whatsnew-en-US` (<= 500 chars, used by `r0adkll/upload-google-play` `whatsNewDirectory`).
+   - Prepend the new version section to `RELEASE_NOTES.md` in the root repository.
 
-3. **Root Documentation**:
-   - Keep version references in `README.md` and `SPECIFICATION.md` in sync with the new minor version.
-   - Commit and push the version bump to `origin/main` in each submodule and the parent repo **before** running `gh workflow run ios-testflight.yml` or `gh workflow run android-play.yml`.
+3. **Commit, Push & Trigger**:
+   - Commit and push `ble`, `ios`, `android`, and the parent repository to `origin/main` **before** running `gh workflow run ios-testflight.yml` or `gh workflow run android-play.yml`.
