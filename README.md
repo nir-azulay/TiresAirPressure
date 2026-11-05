@@ -37,8 +37,8 @@ This repository is only the index. Each part has its own repository, checked out
 | Folder | What it is | Repository |
 |---|---|---|
 | [`ble`](ble) | ESP32 firmware (`v1.0`), Web UI, wiring, and BLE protocol | [AirUpDownControllerV2](https://github.com/nir-azulay/AirUpDownControllerV2) |
-| [`android`](android) | Android phone app (`v2.1.0`) and Android Auto | [TiresAirPressure-Android](https://github.com/nir-azulay/TiresAirPressure-Android) |
-| [`ios`](ios) | iOS phone app (`v2.1.0`) and CarPlay | [TiresAirPressure-iOS](https://github.com/nir-azulay/TiresAirPressure-iOS) |
+| [`android`](android) | Android phone app (`v2.2.0`) and Android Auto | [TiresAirPressure-Android](https://github.com/nir-azulay/TiresAirPressure-Android) |
+| [`ios`](ios) | iOS phone app (`v2.2.0`) and CarPlay | [TiresAirPressure-iOS](https://github.com/nir-azulay/TiresAirPressure-iOS) |
 
 Deeper detail lives next to the code:
 

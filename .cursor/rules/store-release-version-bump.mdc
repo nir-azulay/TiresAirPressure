@@ -1,0 +1,21 @@
+---
+description: Always promote the minor version before publishing to TestFlight or Google Play Console
+alwaysApply: true
+---
+
+# Store Release Minor Version Promotion
+
+Whenever the user asks to publish, upload, or release to **TestFlight** (iOS) or **Google Play Console** (Android), you **MUST** first increment the **minor version** (`X.Y.Z` -> `X.(Y+1).0`) before committing, pushing, and triggering the release workflow:
+
+1. **iOS (`ios/`)**:
+   - Bump `CFBundleShortVersionString` in `ios/App/Info.plist` (e.g. `2.1.0` -> `2.2.0`).
+   - Bump `MARKETING_VERSION` in `ios/TirePressureManager.xcodeproj/project.pbxproj` (in both `Debug` and `Release` target configurations).
+   - Update the version header in `ios/README.md` if applicable.
+
+2. **Android (`android/`)**:
+   - Increment `def versionMinor` (and reset `def versionPatch = 0`) in `android/app/build.gradle`.
+   - Update the version header in `android/README.md` if applicable.
+
+3. **Root Documentation**:
+   - Keep version references in `README.md` and `SPECIFICATION.md` in sync with the new minor version.
+   - Commit and push the version bump to `origin/main` in each submodule and the parent repo **before** running `gh workflow run ios-testflight.yml` or `gh workflow run android-play.yml`.
