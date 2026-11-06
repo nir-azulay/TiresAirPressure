@@ -1,0 +1,29 @@
+RELEASE_NOTES.md
+  s_c6b8b716f084ae::t_34341d1d72240d 3-14
+README.md
+  s_c6b8b716f084ae::t_3d8cbbe08346ca 40-41
+SPECIFICATION.md
+  s_c6b8b716f084ae::t_2f805459b6b8da 4,292
+android
+  s_c6b8b716f084ae::t_17e4f2ff167c5e 1
+ble
+  s_c6b8b716f084ae::t_c865ee731188fa 1
+ios
+  s_c6b8b716f084ae::t_ca0429f0b51eb8 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.11",
+  "base_commit_sha": "3c549aa2d9705dfe00bd96db392c97aab2ba92d3",
+  "prompts": {},
+  "sessions": {
+    "s_c6b8b716f084ae": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "522e06f5-c391-47e8-8a61-a9e7ff269c45",
+        "model": "muse-wonder-1.0"
+      },
+      "human_author": "Nir Azulay <nir.azulay@gmail.com>"
+    }
+  }
+}
