@@ -1,5 +1,17 @@
 # Release Notes
 
+## v2.3.0 (2026-11-06)
+
+**Bundled Controller Firmware:** `v2.3.0_283`
+
+### What's New Since v2.2.0
+- **Full In-App Controller Upgrade (iOS & Android):** One flow migrates `settings.json`, uploads all SPIFFS Web UI files, flashes `firmware.bin`, and reboots/reconnects the controller — with firmware-only and SPIFFS-only options.
+- **Synced Versioning:** ESP32 controller firmware carries the same version as the companion apps (`v2.3.0`, build `283`), packaged into both apps with `ble/scripts/package_for_ios.py`. Older controllers are primed before upload, and the apps' upgrade flow is now identical across iOS and Android.
+- **Android Settings Redesign:** Settings screens rebuilt to match the iOS layout (grouped sections, device configuration sub-page, preset pressure editor), with the Save/Discard bar staying above the keyboard and tap-outside-to-dismiss.
+- **Android BLE Stability:** Reassembly of multi-chunk BLE settings notifications and singleton BLE manager/repository so settings survive navigation.
+- **iOS Improvements:** Adjustable app font size applied across main and settings screens; layout stays stable when the system text size is enlarged.
+- **Controller Firmware:** OTA race-condition fix in `loop()` and version reporting synced to the apps.
+
 ## v2.2.1 (2026-11-06)
 
 **Bundled Controller Firmware:** `v2.2.1_280`
