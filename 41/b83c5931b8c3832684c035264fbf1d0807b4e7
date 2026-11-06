@@ -1,0 +1,21 @@
+.cursor/skills/release-manager/SKILL.md
+  s_c6b8b716f084ae::t_bc875531af0480 21,55,57,60-61,65,85,98,101
+.cursor/rules/store-release-version-bump.mdc
+  s_c6b8b716f084ae::t_bc875531af0480 2,6,10,12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.11",
+  "base_commit_sha": "41b83c5931b8c3832684c035264fbf1d0807b4e7",
+  "prompts": {},
+  "sessions": {
+    "s_c6b8b716f084ae": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "522e06f5-c391-47e8-8a61-a9e7ff269c45",
+        "model": "muse-wonder-1.0"
+      },
+      "human_author": "Nir Azulay <nir.azulay@gmail.com>"
+    }
+  }
+}
