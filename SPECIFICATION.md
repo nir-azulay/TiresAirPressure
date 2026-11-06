@@ -1,7 +1,7 @@
 # Tires Air Pressure Management System — DIY Technical Specification
 
 **Project Type:** Open-Source DIY (Do-It-Yourself) Off-Road Hardware & Mobile/Automotive Software Suite  
-**Version:** Firmware `v1.0.x` (`Software_VER = 2.00`) | iOS `v2.2.0` | Android `v2.2.0`  
+**Version:** Firmware `v2.2.1` (`VERSION_SHORT v2.2.1_280`) | iOS `v2.2.1` | Android `v2.2.1`  
 **Author:** Nir Azulay  
 
 ---
@@ -289,7 +289,7 @@ Settings are stored on SPIFFS in `/settings.json` and validated at boot and on s
 
 ## 7. Mobile & Automotive Applications (`iOS` & `Android`)
 
-### 7.1 Shared Feature Set (`v2.2.0`)
+### 7.1 Shared Feature Set (`v2.2.1`)
 - **Off-Road Dark Theme & 270° Speedometer Gauge:** High-contrast dark UI (`#101318` / `#181C24`) with a custom 270° circular pressure gauge, orange preset chips (`Road`, `Trail`, `Sand`, `Rock`, plus custom presets), and an animated **Target Reached Celebration** overlay with sound and haptic feedback.
 - **Multi-Device Auto-Connect:** Stores the 2 most recently connected controllers (`savedDevices`) with per-device `accessCode`, automatically promoting the latest connected controller to priority `0` and scanning/reconnecting in the background on launch.
 - **Full Controller Configuration over BLE:** Reads and writes all 18 controller parameters over chunked BLE (`180`-byte chunks), including pin assignments, calibration method & values, safety limits, hotspot password, BLE access code, password visibility toggles, and live ESP32 Wi-Fi network scanning (`command: 9`).

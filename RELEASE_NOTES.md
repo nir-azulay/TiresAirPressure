@@ -1,5 +1,16 @@
 # Release Notes
 
+## v2.2.1 (2026-11-06)
+
+**Bundled Controller Firmware:** `v2.2.1_280`
+
+### What's New Since v2.2.0
+- **Synced Versioning:** ESP32 controller firmware now carries the same version as the companion apps (`v2.2.1`, build `280`) instead of a separate date-based number, and is packaged into both apps with `ble/scripts/package_for_ios.py`.
+- **OTA Root-Cause Fix (iOS & Android):** Firmware uploads are now paced at flash-erase cadence — one 64 KB burst, then a ~650 ms pause while the controller erases that flash block. Flooding through the erase window lost ACKs on the 2.4 GHz link and TCP retransmission backoff stalled transfers until they timed out; paced uploads now flash the full ~1.7 MB in ~45 s. Also: priming request for controllers on older firmware, CR-boundary-safe multipart chunking, no settings reboot during the simulation-mode guard, preference for the live LAN address over a stale SoftAP address, keep-screen-on while flashing, and a hard error if the controller is still on the old firmware after reboot instead of a false success.
+- **Android BLE Stability:** Reassembly of multi-chunk BLE settings notifications, singleton BLE manager/repository so settings survive navigation, and settings load/save fixes.
+- **Android Settings Keyboard:** Save/Discard bar stays above the keyboard, keyboard dismisses when tapping outside a field, and fields use a Done action.
+- **iOS Improvements:** Adjustable app font size (SettingsManager `AppFontSize`) applied across main and settings screens, with English/Hebrew strings and tests.
+
 ## v2.2.0 (2026-11-05)
 
 **Bundled Controller Firmware:** `v1.0.261105_270`
