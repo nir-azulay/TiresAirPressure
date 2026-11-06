@@ -18,7 +18,7 @@ Follow this exact checklist whenever the user asks to publish or release to **Te
 Release Progress:
 - [ ] Step 1: Package latest ESP32 firmware (if ble/ changed)
 - [ ] Step 2: Collect changes since the last TestFlight / Play Store release
-- [ ] Step 3: Promote the minor version (X.Y.Z -> X.(Y+1).0)
+- [ ] Step 3: Promote the patch version (X.Y.Z -> X.Y.(Z+1))
 - [ ] Step 4: Update release notes with all changes since the last release
 - [ ] Step 5: Commit and push submodules + parent repo to origin/main
 - [ ] Step 6: Trigger TestFlight / Google Play GitHub Actions workflows
@@ -52,17 +52,17 @@ Summarize all user-visible features, firmware improvements, bug fixes, and UI up
 
 ---
 
-## Step 3: Promote the Minor Version (`X.Y.Z` -> `X.(Y+1).0`)
+## Step 3: Promote the Patch Version (`X.Y.Z` -> `X.Y.(Z+1)`)
 
-**Every store release MUST promote the minor version first** (e.g. `2.2.0` -> `2.3.0`) and reset patch to `0`:
+**Every store release MUST promote the patch version first** (e.g. `2.2.0` -> `2.2.1`), leaving major and minor unchanged:
 
 1. **iOS (`ios/`)**:
-   - `ios/App/Info.plist`: Update `<key>CFBundleShortVersionString</key>` to `X.(Y+1).0`.
-   - `ios/TirePressureManager.xcodeproj/project.pbxproj`: Update `MARKETING_VERSION = X.(Y+1).0;` in both `Debug` and `Release` configurations of the `TirePressureManager` target.
+   - `ios/App/Info.plist`: Update `<key>CFBundleShortVersionString</key>` to `X.Y.(Z+1)`.
+   - `ios/TirePressureManager.xcodeproj/project.pbxproj`: Update `MARKETING_VERSION = X.Y.(Z+1);` in both `Debug` and `Release` configurations of the `TirePressureManager` target.
    - `ios/README.md`: Update the version badge in the title.
 
 2. **Android (`android/`)**:
-   - `android/app/build.gradle`: Increment `def versionMinor` by `1` and ensure `def versionPatch = 0`.
+   - `android/app/build.gradle`: Increment `def versionPatch` by `1` and leave `def versionMinor` unchanged.
    - `android/README.md`: Update the version badge in the title.
 
 3. **Root Documentation**:
@@ -82,7 +82,7 @@ Write clear, concise release notes summarizing what was developed since the last
    - Plain text (strictly **<= 500 characters** as required by Google Play Console) consumed by `r0adkll/upload-google-play` via `whatsNewDirectory: whatsnew`.
 
 3. **Repository Release History (`RELEASE_NOTES.md`)**:
-   - Prepend a new `## vX.(Y+1).0 (YYYY-MM-DD)` section at the top of `RELEASE_NOTES.md` in the root repository.
+   - Prepend a new `## vX.Y.(Z+1) (YYYY-MM-DD)` section at the top of `RELEASE_NOTES.md` in the root repository.
 
 ---
 
@@ -95,10 +95,10 @@ Commit and push each submodule first, then commit the updated submodule pointers
 git -C ble add -A && git -C ble commit -m "Release vX.Y.0 firmware package" && git -C ble push origin main
 
 # 2. iOS submodule
-git -C ios add -A && git -C ios commit -m "Release vX.Y.0: promote minor version and update TestFlight release notes" && git -C ios push origin main
+git -C ios add -A && git -C ios commit -m "Release vX.Y.Z: promote patch version and update TestFlight release notes" && git -C ios push origin main
 
 # 3. Android submodule
-git -C android add -A && git -C android commit -m "Release vX.Y.0: promote minor version and update Play Store release notes" && git -C android push origin main
+git -C android add -A && git -C android commit -m "Release vX.Y.Z: promote patch version and update Play Store release notes" && git -C android push origin main
 
 # 4. Parent repository
 git add ble ios android README.md SPECIFICATION.md RELEASE_NOTES.md

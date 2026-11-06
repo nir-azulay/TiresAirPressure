@@ -1,15 +1,15 @@
 ---
-description: Always promote the minor version and update release notes before publishing to TestFlight or Google Play Console
+description: Always promote the patch version and update release notes before publishing to TestFlight or Google Play Console
 alwaysApply: true
 ---
 
-# Store Release Minor Version & Release Notes Rule
+# Store Release Patch Version & Release Notes Rule
 
 Whenever the user asks to publish, upload, or release to **TestFlight** (iOS) or **Google Play Console** (Android), you **MUST** follow the `release-manager` skill (`.cursor/skills/release-manager/SKILL.md`):
 
-1. **Promote Minor Version (`X.Y.Z` -> `X.(Y+1).0`)**:
+1. **Promote Patch Version (`X.Y.Z` -> `X.Y.(Z+1)`)**:
    - **iOS (`ios/`)**: Bump `CFBundleShortVersionString` in `ios/App/Info.plist`, `MARKETING_VERSION` in `ios/TirePressureManager.xcodeproj/project.pbxproj`, and `ios/README.md`.
-   - **Android (`android/`)**: Increment `def versionMinor` (and reset `def versionPatch = 0`) in `android/app/build.gradle`, and update `android/README.md`.
+   - **Android (`android/`)**: Increment `def versionPatch` by 1 (leave `def versionMinor` unchanged) in `android/app/build.gradle`, and update `android/README.md`.
    - **Root Docs**: Update `README.md` and `SPECIFICATION.md`.
 
 2. **Update Release Notes Since Last Release**:
